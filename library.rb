@@ -49,6 +49,9 @@ class Gay
 end
 
 class Dan < Gay
+  def strength
+    @strength
+  end
   def rape_once(gay)
     if (0..@strength).member?(Random.rand(1000))
       @strength += 5

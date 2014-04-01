@@ -9,7 +9,9 @@ def rape
 end
 
 def status
-
+    puts "Your name: #{PLAYER.to_s}"
+    puts "Your IQ: #{PLAYER.iq_extractor}"
+    puts "Your strength: #{PLAYER.strength}"
 end
 
 puts "Welcome to The Rapegame Alpha!\n\nCreate your own gay to begin the hunt!"
@@ -23,10 +25,10 @@ while !iq.is_number?
   iq = gets.chomp
 end
 puts "Let the hunt begin!"
-puts "Type 'rape' to rape, 'status' to show the bio of your gay or 'exit' to exit"
 PLAYER = Dan.new(name, iq, Random.rand(1..20))
 exit = false
 while !exit
+  puts "Type 'rape' to rape, 'status' to show the bio of your gay or 'exit' to exit"
   command = gets.chomp
   case command
   when "rape"
