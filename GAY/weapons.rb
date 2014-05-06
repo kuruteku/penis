@@ -1,7 +1,8 @@
 require "./data"
 
-class Bron
 
+class Bron
+  
   attr_reader :name, :strength, :durability, :type, :attack_type
   def initialize(attributes)
     
@@ -19,12 +20,17 @@ class Bron
       return false
     else
       @durability -= 1
+     
       return true
     end
   end
   
   def info
     return "A powerful #{@type} made from #{@material.name} called #{@name} with the strength of #{@strength} and the durability of #{@durability}."
+  end
+  
+  def broken?
+    @durability <= 0    
   end
   
 end

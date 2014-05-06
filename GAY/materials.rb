@@ -20,10 +20,10 @@ end
 
 class Material
   attr_reader :name, :strength_range, :durability_range
-  def initialize(name,strength_range,durability_range)
+  def initialize(name,durability_range,strength_range)
     @name = name
-    @strength_range = strength_range
     @durability_range = durability_range
+    @strength_range = strength_range
   end
 
   def material?(durability,strength)

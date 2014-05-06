@@ -3,6 +3,13 @@ require "./weapons"
 require "./wojownici"
 require "./materials"
 
+class Notifier
+  def update(text)
+    puts text
+  end
+end
+
+
 class KostkaHerni
 
   attr_reader :sides
@@ -61,15 +68,17 @@ end
 
 Dane.instance.init
 
-dice = KostkaHerni.new(23)
+dice = KostkaHerni.new(6)
 
-penis = Miecz.new(material:Materials.get_melee_material("halbium"))
+penis = Miecz.new(material:Materials.get_melee_material("paper"))
 
-dan = KogutWalki.new(dice:dice,hit_points:669,strength:100,defense:10,luck:23,weapon:penis)
+dan = KogutWalki.new(name:"dan",dice:dice,hit_points:100,strength:8,defense:5,luck:23,weapon:penis)
+dan.add_observer(Notifier.new)
 
-pyj = Miecz.new(material:Materials.get_melee_material("bronze"))
+pyj = Miecz.new(material:Materials.get_melee_material("paper"))
 
-gay = KogutWalki.new(dice:dice,hit_points:1000,strength:25,defense:50,luck:5,weapon:pyj)
+gay = KogutWalki.new(name:"gay",dice:dice,hit_points:100,strength:8,defense:5,luck:23,weapon:pyj)
+gay.add_observer(Notifier.new)
 
 arena = Arena.new(dan,gay)
 arena.fight
